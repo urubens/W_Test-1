@@ -1,58 +1,79 @@
 {
-  "name": "",
-  "description": "",
-  "container-image": {
-    "image": "neubiaswg5/w_",
-    "type": "singularity"
-  },
-  "command-line": "python wrapper.py CYTOMINE_HOST CYTOMINE_PUBLIC_KEY CYTOMINE_PRIVATE_KEY CYTOMINE_ID_PROJECT CYTOMINE_ID_SOFTWARE",
-  "inputs": [
-    {
-      "id": "cytomine_host",
-      "value-key": "@ID",
-      "command-line-flag": "--@id",
-      "name": "Cytomine host",
-      "set-by-server": true,
-      "optional": false,
-      "type": "String"
+    "name": "W_Test",
+    "description": "BIAFLOWS workflow to segment clustered nuclei using ImageJ.",
+    "container-image": {
+        "image": "neubiaswg5/w_test",
+        "type": "singularity"
     },
-    {
-      "id": "cytomine_public_key",
-      "value-key": "@ID",
-      "command-line-flag": "--@id",
-      "name": "Cytomine public key",
-      "set-by-server": true,
-      "optional": false,
-      "type": "String"
-    },
-    {
-      "id": "cytomine_private_key",
-      "value-key": "@ID",
-      "command-line-flag": "--@id",
-      "name": "Cytomine private key",
-      "set-by-server": true,
-      "optional": false,
-      "type": "String"
-    },
-    {
-      "id": "cytomine_id_project",
-      "value-key": "@ID",
-      "command-line-flag": "--@id",
-      "name": "Cytomine project ID",
-      "set-by-server": true,
-      "optional": false,
-      "type": "Number"
-    },
-    {
-      "id": "cytomine_id_software",
-      "value-key": "@ID",
-      "command-line-flag": "--@id",
-      "name": "Cytomine software ID",
-      "set-by-server": true,
-      "optional": false,
-      "type": "Number"
-    }
-  ],
-
-  "schema-version": "cytomine-0.1"
+    "command-line": "python wrapper.py CYTOMINE_HOST CYTOMINE_PUBLIC_KEY CYTOMINE_PRIVATE_KEY CYTOMINE_ID_PROJECT CYTOMINE_ID_SOFTWARE RADIUS THRESHOLD",
+    "inputs": [
+        {
+            "id": "cytomine_host",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine host",
+            "set-by-server": true,
+            "optional": false,
+            "type": "String"
+        },
+        {
+            "id": "cytomine_public_key",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine public key",
+            "set-by-server": true,
+            "optional": false,
+            "type": "String"
+        },
+        {
+            "id": "cytomine_private_key",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine private key",
+            "set-by-server": true,
+            "optional": false,
+            "type": "String"
+        },
+        {
+            "id": "cytomine_id_project",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine project ID",
+            "set-by-server": true,
+            "optional": false,
+            "type": "Number"
+        },
+        {
+            "id": "cytomine_id_software",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine software ID",
+            "set-by-server": true,
+            "optional": false,
+            "type": "Number"
+        },
+        {
+            "id": "radius",
+            "name": "Radius",
+            "description": "Radius for Laplacian filter",
+            "default-value": 5,
+            "type": "Number",
+            "set-by-server": false,
+            "value-key": "@ID",
+            "optional": true,
+            "command-line-flag": "--@id"
+        },
+        {
+            "id": "threshold",
+            "name": "Threshold",
+            "description": "Segmentation threshold",
+            "default-value": -0.5,
+            "type": "Number",
+            "set-by-server": false,
+            "value-key": "@ID",
+            "optional": true,
+            "command-line-flag": "--@id"
+        }
+    ],
+    "schema-version": "cytomine-0.1"
 }
