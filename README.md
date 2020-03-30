@@ -1,2 +1,2 @@
-# W_Template
-Workflow template repository
+# W_Test
+BIAFLOWS workflow to segment clustered nuclei using ImageJ.
